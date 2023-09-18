@@ -14,9 +14,23 @@ class _HomeScreenState extends State<HomeScreen> {
         length: 3,
         child: Scaffold(
           appBar: AppBar(
+            actions: [
+              PopupMenuButton(
+                itemBuilder: (context) {
+                  return ["Setting", "Quit"].map((e) {
+                        return PopupMenuItem(
+                          child: Text(e),
+                          onTap: () {
+                            print(e);
+                          },
+                        );
+                      }).toList();
+                },
+              )
+            ],
             title: const Text('TAB BAR'),
             bottom: const TabBar(
-              indicatorColor: Colors.blue,
+                indicatorColor: Colors.blue,
                 unselectedLabelColor: Colors.white,
                 labelColor: Colors.redAccent,
                 tabs: [
